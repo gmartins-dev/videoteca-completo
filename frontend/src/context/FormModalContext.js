@@ -1,16 +1,18 @@
-import { createContext, useContext, useState } from "react";
-import FormModal from "../components/FormModal";
-import { useAxios } from "../hooks/useAxios";
-import api from "../services/api";
-import { EditingVideoContext } from "./EditingVideoContext";
+import { createContext, useContext, useState } from 'react';
+import FormModal from '../components/FormModal';
+import { useAxios } from '../hooks/useAxios';
+import api from '../services/api';
+import { EditingVideoContext } from './EditingVideoContext';
 
 export const FormModalContext = createContext();
 
-export function FormModalProvider({ children }) {
-  const { data, mutate } = useAxios("videos");
+//nesse arquivo estão as funções que se comunicam com as rotas da api
 
-  const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
+export function FormModalProvider({ children }) {
+  const { data, mutate } = useAxios('videos');
+
+  const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
   const [isFormModalUp, setIsFormModalUp] = useState(false);
 
   const { editingVideo } = useContext(EditingVideoContext);
@@ -45,7 +47,7 @@ export function FormModalProvider({ children }) {
         title,
         link,
       };
-      api.post("videos", video);
+      api.post('videos', video);
 
       const updatedVideos = {
         videos: [...data.videos, video],
