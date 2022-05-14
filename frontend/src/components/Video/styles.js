@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   /* list-style: none; */
@@ -32,6 +32,26 @@ export const Container = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  a {
+    border-left: 3px solid #bbbbbb;
+    padding-left: 10px;
+    max-width: 230px;
+
+    color: #999999;
+    font-style: italic;
+    align-self: start;
+
+    white-space: nowrap; //nao deixa cortar o texto
+    overflow: hidden; //nao deixa o texto ultrapassar o elemento pai
+    text-overflow: ellipsis; //adiciona reticencias
+
+    transition: opacity 0.2s ease-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 `;
 
 export const ButtonArea = styled.div`
@@ -50,7 +70,7 @@ export const Button = styled.button`
   & svg {
     height: 20px;
     width: 20px;
-    color: ${(props) => (props.liked ? "#3EA6FF" : "#1E1E1E")};
+    color: ${(props) => (props.liked ? '#3EA6FF' : '#1E1E1E')};
   }
 
   &:hover {
